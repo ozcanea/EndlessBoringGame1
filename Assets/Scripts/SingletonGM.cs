@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SingletonGM : MonoBehaviour
 {
@@ -23,8 +25,13 @@ public class SingletonGM : MonoBehaviour
     [HideInInspector] public SpawnManager1 spawnManager;
     [HideInInspector] public TimeManager timeManager;
     [HideInInspector] public int score = 0;
+    [HideInInspector] public int highScore;
+    
     public void Awake()
     {
+
+
+
         if (_instance == null)
         {
             _instance = this;
@@ -36,6 +43,13 @@ public class SingletonGM : MonoBehaviour
 
         spawnManager = GetComponentInChildren<SpawnManager1>();
         timeManager = GetComponentInChildren<TimeManager>();
+        
+        
+
+    }
+    public void StopGame()
+    {
+        Time.timeScale = 0;
     }
 
 

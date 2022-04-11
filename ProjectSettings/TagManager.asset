@@ -8,6 +8,17 @@ TagManager:
   - SpawnPoint
   - FuelTank
   - Body
+  - Undefined
+  - PauseButton
+  - PlayButton
+  - Score
+  - HighScore
+  - AudioOn
+  - AudioOff
+  - CarColorChange
+  - Retry
+  - HighScoreResetBox
+  - GameOverImageBox
   layers:
   - Default
   - TransparentFX

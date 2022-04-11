@@ -20,5 +20,4 @@ public class TimeManager : MonoBehaviour
     {
         return time - Time.deltaTime;
     }
-
 }

@@ -7,12 +7,13 @@ using UnityEngine;
 /// </summary>
 public class TestMoveRoad : MonoBehaviour
 {
-    public float roadSpeed = 10f;
-    [SerializeField]private float increaseDelay = 30f;
-    [SerializeField] private float maxSpeed = 25f;
+    [HideInInspector]public float roadSpeed = 10f;
+    [HideInInspector]private float increaseDelay = 20f;
+    [HideInInspector] private float maxSpeed = 25f;
 
     private void Start()
     {
+        roadSpeed = 10f;
         StartCoroutine(IncreaseRoadSpeed());
     }
 

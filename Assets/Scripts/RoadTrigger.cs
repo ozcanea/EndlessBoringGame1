@@ -8,7 +8,7 @@ using UnityEngine;
 public class RoadTrigger : MonoBehaviour
 {
     [HideInInspector] RoadSpawner rs;
-    [HideInInspector] TestMoveRoad tMR;
+
     private void Start()
     {
         rs = FindObjectOfType<RoadSpawner>();

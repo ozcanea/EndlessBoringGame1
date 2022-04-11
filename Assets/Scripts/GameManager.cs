@@ -2,37 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : SingletonGM 
+
+
+public class GameManager : SingletonGM
 {
-    ParticleSystem[] particle;
+
     private void Start()
     {
-        particle=GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<ParticleSystem>();
+        
     }
     void Update()
     {
-        if(!gameOver)Spawn();
-        if (gameOver)
+        Debug.Log(gameOver);
+        
+        if (!gameOver)
         {
-            foreach (ParticleSystem p in particle)
+            
+            Spawn();
+
+            if (score > PlayerPrefs.GetInt("highScore", 0))
             {
-                p.Stop();
+                highScore = score;
+                PlayerPrefs.SetInt("highScore", score);
             }
-        } //stop particul systems
+
+
+
+        }
+
     }
     void Spawn()
     {
-        if (timeManager.spawnTime<= 0)
+        if (timeManager.spawnTime <= 0)
         {
-            GameManager.Instance.spawnManager.ReadyForSpawn();
+            spawnManager.ReadyForSpawn();
             timeManager.spawnTime = timeManager.spawnDelay;
             if (timeManager.spawnDelay > timeManager.minTime)
-                timeManager.spawnDelay= timeManager.DecreaseSpawnDelay(timeManager.spawnDelay, timeManager.decrease);
+                timeManager.spawnDelay = timeManager.DecreaseSpawnDelay(timeManager.spawnDelay, timeManager.decrease);
         }
         else
         {
-            timeManager.spawnTime =timeManager.DecreaseUpToDeltaTime(timeManager.spawnTime);
+            timeManager.spawnTime = timeManager.DecreaseUpToDeltaTime(timeManager.spawnTime);
         }
     }
-   
+
+  
+  
 }
